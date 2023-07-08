@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Website</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+      :root {
+    --border-width: 7px;
+  }
+  
+  /* * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #eb4a62;
+  } */
+  
+  .sec-loading {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sec-loading .one {
+    height: 80px;
+    width: 80px;
+    border: var(--border-width) solid white;
+    transform: rotate(45deg);
+    border-radius: 0 50% 50% 50%;
+    position: relative;
+    animation: move 0.5s linear infinite alternate-reverse;
+  }
+  .sec-loading .one::before {
+    content: "";
+    position: absolute;
+    height: 55%;
+    width: 55%;
+    border-radius: 50%;
+    border: var(--border-width) solid transparent;
+    border-top-color: white;
+    border-bottom-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes move {
+    to {
+      transform: translateY(15px) rotate(45deg);
+    }
+  }
+    body {
+    background-image: url("./images/plane222.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top ; /* Adjust the value as needed */
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+  }
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .main-txt h1{
+    text-align: left;
+    margin-top: 30px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+}
+.main-txt h1 span{
+    color: #ffa500;
+}
+  </style>
+</head>
+
+<body>
+
+  <section class="sec-loading">
+    <div class="one">
+    </div>
+  </section>
+  
+  <div class="container py-5">
+   <div class="main-txt">
+          <h1><span>flight </span> RESERVATION</h1>
+        </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Start City
+      </button>
+      <select id="flightStartCitySelect" class="form-select" aria-label="Default select example">
+        <option selected>choose city</option>
+      </select>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        Destination
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <select id="flightEndCitySelect" class="form-select" aria-label="Default select example">
+        <option selected>choose city</option>
+      </select>
+    </div>
+
+    <label for="startDate">Flight Date:</label>
+    <input type="date" id="startDate" name="startDate" class="date-input" onchange="handleChange(event)" />
+
+    <!-- <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        How many people you want to reserve
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">1</a></li>
+        <li><a class="dropdown-item" href="#">2</a></li>
+        <li><a class="dropdown-item" href="#">3</a></li>
+        <li><a class="dropdown-item" href="#">4</a></li>
+        <li><a class="dropdown-item" href="#">5</a></li>
+        <li><a class="dropdown-item" href="#">6</a></li>
+        <li><a class="dropdown-item" href="#">7</a></li>
+        <li><a class="dropdown-item" href="#">8</a></li>
+      </ul>
+    </div> -->
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        how many adults?
+      </button>
+   
+      <select id="flightPassangers" class="form-select" aria-label="Default select example">
+        <option selected>choose number of adults</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        how many children?
+      </button>
+   
+      <select id="flightPassangers" class="form-select" aria-label="Default select example">
+        <option selected>choose number of child</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+
+    <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5"></div>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <h1>Choose:</h1>
+
+    <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1">One-way flight</label><br> -->
+    <input type="checkbox" id="twoWayCheckbox" name="twoWayCheckbox" onchange="onChange(event)">
+    <label for="twoWayCheckbox">Two-way flight</label><br>
+
+    <div id="dropdownContainer" class="dropdown-container" style="display: none;">
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
+        <input type="date" id="returnDate" name="returnDate" class="date-input"
+        onchange="handleReturnDateChange(event)">
+      </div>
+    </div>
+    <!-- <div id="dropdownContainer" class="dropdown-container"></div> -->
+    <!-- <button type="button" class="btn btn-primary">if you are a hotel iwner click here</button> -->
+    <a class="btn btn-outline-warning" href="./owner.html" role="button">if you are a hotel owner click here</a>
+    <a class="btn btn-outline-warning" role="button" id="show-flight-button">show flights</a>
+
+  </div>
+  </div>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./dataHandler-flight.js"></script>
+  
+  <script>
+    function onChange(event) {
+      // const selectedValue = event.target.value;
+
+      // const oneWayCheckbox = document.getElementById('vehicle1');
+      const twoWayCheckbox = document.getElementById('twoWayCheckbox');
+      const dropdownContainer = document.getElementById('dropdownContainer');
+      // const toastContainer = document.getElementById('toastContainer');
+
+      // if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
+      //   alert('You cannot select both one-way and two-way flights.');
+
+      //   toastContainer.style.display = 'block';
+      //   setTimeout(function () {
+      //     toastContainer.style.display = 'none';
+      //   }, 3000);
+
+      //   oneWayCheckbox.checked = false;
+      //   twoWayCheckbox.checked = false;
+      //   dropdownContainer.innerHTML = '';
+      // } else 
+      dropdownContainer.style.display = twoWayCheckbox.checked ? 'block' : 'none';
+    }
+    
+    function handleReturnDateChange(event) {
+      const returnDate = event.target.value;
+      console.log(returnDate);
+    }
+    </script>
+</body>
+
+</html>

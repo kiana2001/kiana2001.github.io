@@ -1,0 +1,824 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="slide navbar style.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Link -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Link -->
+
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    
+</head>
+<body>
+
+  
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+      <label for="language" data-lang="en">Choose a language:</label>
+      <label for="language" data-lang="ar" style="display: none;"> زبان:</label>
+      <select name="language" id="language" onchange="changeLanguage()">
+        <option value="en" data-lang="en">English</option>
+        <option value="ar" data-lang="ar">persian</option>
+      </select>
+      <div class="container">
+        <a class="navbar-brand" href="index.html" id="logo">
+          <span data-lang="en">Travel</span>
+          <span data-lang="ar" style="display: none;">مسافرت</span>
+          
+        </a>
+
+        <script>
+          function changeLanguage() {
+  var languageSelect = document.getElementById("language");
+  var selectedLanguage = languageSelect.value;
+
+  var logoEnglish = document.querySelector("#logo [data-lang='en']");
+  var logoArabic = document.querySelector("#logo [data-lang='ar']");
+
+  if (selectedLanguage === "en") {
+    logoEnglish.style.display = "inline";
+    logoArabic.style.display = "none";
+  } else if (selectedLanguage === "ar") {
+    logoEnglish.style.display = "none";
+    logoArabic.style.display = "inline";
+  }
+}
+
+        </script>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span><i class="fa-solid fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html" id="homeLink" data-lang="en">home</a>
+              <a class="nav-link active" href="index.html" id="homeLink" data-lang="ar" style="display: none;"> خانه</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="bookLink" data-lang="en">book </a>
+              <a class="nav-link" href="#" id="bookLink" data-lang="ar" style="display: none;">رزرو</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./flight.html" id="flightLink" data-lang="en">flight reservation  </a>
+              <a class="nav-link" href="./flight.html" id="flightLink" data-lang="ar" style="display: none;">پروزاز  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services" id="servicesLink" data-lang="en">services</a>
+              <a class="nav-link" href="#services" id="servicesLink" data-lang="ar" style="display: none;">الخدمات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./train.html" id="trainLink" data-lang="en"> train </a>
+              <a class="nav-link" href="./train.html" id="trainLink" data-lang="ar" style="display: none;">قطار</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./personal.html" id="aboutLink" data-lang="en"> personal  </a>
+              <a class="nav-link" href="./personal.html" id="aboutLink" data-lang="ar" style="display: none;">شخصی</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html" id="loginLink" data-lang="en">login</a>
+              <a class="nav-link" href="./login.html" id="loginLink" data-lang="ar" style="display: none;"> ورود</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="hotel-book.html" id="hotelLink" data-lang="en">hotel  </a>
+              <a class="nav-link active" href="hotel-book.html" id="hotelLink" data-lang="ar" style="display: none;">هتل</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="search" data-lang="en">
+            <input class="form-control me-2" type="text" placeholder="جست و جو" data-lang="ar" style="display: none;">
+            <button class="btn btn-primary" type="button" data-lang="en">search</button>
+            <button class="btn btn-primary" type="button" data-lang="ar" style="display: none;">جست و جو</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
+    
+    <!-- Navbar End -->
+    <script>
+      function changeLanguage() {
+        var languageSelect = document.getElementById("language");
+        var selectedLanguage = languageSelect.value;
+    
+        // Get all elements with data-lang attribute
+        var elements = document.querySelectorAll("[data-lang]");
+    
+        // Loop through the elements and show/hide based on the selected language
+        for (var i = 0; i < elements.length; i++) {
+          var element = elements[i];
+          var lang = element.getAttribute("data-lang");
+    
+          if (lang === selectedLanguage) {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          }
+        }
+      }
+    </script>
+
+
+
+
+
+    <!-- Home Section Start -->
+    <div class="home">
+      <div class="content">
+        <h5 data-lang="en">Welcome To World</h5>
+        <h5 data-lang="ar" style="display: none;">به دنیا خوش امدید</h5>
+        <h1 data-lang="en">Visit <span class="changecontent"></span></h1>
+        <h1 data-lang="ar" style="display: none;"> <span class="changecontent">بازدید</span></h1>
+        <p data-lang="en">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, nisi.</p>
+        <p data-lang="ar" style="display: none;">لوريم إيبسوم دولور sit amet consectetur adipisicing elit. Quae, nisi.</p>
+        <a href="#book" data-lang="en">Book Place</a>
+        <a href="#book" data-lang="ar" style="display: none;">رزرو مکان</a>
+      </div>
+    </div>
+
+    <!-- <h2>Weekly Coding Challenge #1: Sign in/up Form</h2> -->
+    
+    <!-- Section Book Start --><section class="book" id="book">
+  <div class="container">
+
+    <div class="main-text">
+      <h1 data-lang="en"><span>B</span>ook</h1>
+      <h1 data-lang="ar" style="display: none;"><span>رزرو</span></h1>
+    </div>
+    
+    <div class="row">
+
+      <div class="col-md-6 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/book-img.png" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-6 py-3 py-md-0">
+        <form action="#">
+
+          <input type="text" class="form-control" placeholder="Where To" required><br>
+          
+          <input type="text" class="form-control" placeholder="How Many" required><br>
+          <input type="date" class="form-control" placeholder="Arrivals" required><br>
+          <input type="date" class="form-control" placeholder="Leaving" required><br>
+          <textarea class="form-control" rows="5" name="text" placeholder="Enter Your Name & Details"></textarea>
+          <input type="submit" value="Book Now" class="submit" required>
+          
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Section Book End -->
+
+       <!-- about -->
+    
+    <!-- about -->
+
+
+
+
+
+
+    <!-- Section Packages Start -->
+    
+    <section class="packages" id="packages">
+      <div class="container">
+        
+        <div class="main-txt">
+          <h1><span data-lang="en">Packages</span></h1>
+          <h1 style="display: none;" data-lang="ar"><span data-lang-ar="بسته ها"></span></h1>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+
+         <!-- <div class="col-md-4 py-3 py-md-0">
+  <div class="card">
+    <img src="./images/uk.png" alt="">
+    <div class="card-body">
+      <h3 data-lang="en">United Kingdom</h3>
+      <h3 style="display: none;" data-lang="ar" data-lang-ar="المملكة المتحدة"></h3>
+      <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+      <p style="display: none;" data-lang="ar" data-lang-ar="لوريم إيبسوم دولور سيت أميت"></p>
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star "></i>
+        <i class="fa-solid fa-star "></i>
+      </div>
+      <h6 data-lang="en">Price: <strong>$500</strong></h6>
+      <h6 style="display: none;" data-lang="ar" data-lang-ar="السعر: <strong>$500</strong>"></h6>
+      <a href="#book" data-lang="en">Book Now</a>
+      <a href="#book" style="display: none;" data-lang="ar" data-lang-ar="احجز الآن"></a>
+    </div>
+  </div>
+</div> --> <div class="col-md-4 py-3 py-md-0">
+
+  <div class="card">
+    <img src="./images/france.png" alt="">
+    <div class="card-body">
+      <h3 data-lang="en">France</h3>
+      <h3 data-lang="ar" style="display: none;">فرانسه</h3>
+      <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+      <p data-lang="ar" style="display: none;">کشور قشنگی است </p>
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star "></i>
+        <i class="fa-solid fa-star "></i>
+      </div>
+      <h6 data-lang="en">Price: <strong>$500</strong></h6>
+      <h6 data-lang="ar" style="display: none;">قیمت: <strong>$500</strong></h6>
+      <a href="#book" data-lang="en">Book Now</a>
+      <a href="#book" data-lang="ar" style="display: none;"> رزرو کنید</a>
+    </div>
+  </div>
+<script>
+  function changeLanguage() {
+  var languageSelect = document.getElementById("language");
+  var selectedLanguage = languageSelect.value;
+
+  var cards = document.getElementsByClassName("card");
+
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
+    var titleEnglish = card.querySelector("h3[data-lang='en']");
+    var titleArabic = card.querySelector("h3[data-lang='ar']");
+    var contentEnglish = card.querySelector("p[data-lang='en']");
+    var contentArabic = card.querySelector("p[data-lang='ar']");
+    var priceEnglish = card.querySelector("h6[data-lang='en']");
+    var priceArabic = card.querySelector("h6[data-lang='ar']");
+    var bookLinkEnglish = card.querySelector("a[data-lang='en']");
+    var bookLinkArabic = card.querySelector("a[data-lang='ar']");
+
+    if (selectedLanguage === "en") {
+      titleEnglish.style.display = "block";
+      titleArabic.style.display = "none";
+      contentEnglish.style.display = "block";
+      contentArabic.style.display = "none";
+      priceEnglish.style.display = "block";
+      priceArabic.style.display = "none";
+      bookLinkEnglish.style.display = "block";
+      bookLinkArabic.style.display = "none";
+    } else if (selectedLanguage === "ar") {
+      titleEnglish.style.display = "none";
+      titleArabic.style.display = "block";
+      contentEnglish.style.display = "none";
+      contentArabic.style.display = "block";
+      priceEnglish.style.display = "none";
+      priceArabic.style.display = "block";
+      bookLinkEnglish.style.display = "none";
+      bookLinkArabic.style.display = "block";
+    }
+  }
+}
+
+</script>  
+
+</div>
+
+
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="./images/france.png" alt="">
+              <div class="card-body">
+                <h3 data-lang="en">France</h3>
+                <h3 data-lang="ar" style="display: none;">فرانسه</h3>
+                <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <p data-lang="ar" style="display: none;">کشور قشنگی است </p>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6 data-lang="en">Price: <strong>$500</strong></h6>
+                <h6 data-lang="ar" style="display: none;">قیمت: <strong>$500</strong></h6>
+                <a href="#book" data-lang="en">Book Now</a>
+                <a href="#book" data-lang="ar" style="display: none;"> رزرو کنید</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="./images/pakistan.png" alt="">
+              <div class="card-body">
+                <h3>Pakistan</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>$500</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="row" style="margin-top: 30px;">
+
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="./images/italy.png" alt="">
+              <div class="card-body">
+                <h3>Italy</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>$500</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="./images/india.png" alt="">
+              <div class="card-body">
+                <h3>India</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>$500</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="./images/us.png" alt="">
+              <div class="card-body">
+                <h3>United States</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <div class="star">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star "></i>
+                  <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Price: <strong>$500</strong></h6>
+                <a href="#book">Book Now</a>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <script>
+      function changeLanguage() {
+        const languageSelect = document.getElementById('language');
+        const placeholders = document.querySelectorAll('[data-lang]');
+    
+        const selectedLanguage = languageSelect.value;
+    
+        placeholders.forEach(placeholder => {
+          const langKey = placeholder.dataset.lang;
+          const langValue = placeholder.dataset[`lang-${selectedLanguage}`];
+          placeholder.textContent = (selectedLanguage === 'en' || !langValue) ? langKey : langValue;
+          document.documentElement.lang = selectedLanguage;
+          document.documentElement.dir = (selectedLanguage === 'ar') ? 'rtl' : 'ltr';
+        });
+      }
+    </script>
+  
+    <!-- Section Packages End -->
+
+
+
+
+
+
+
+    <!-- Section Services Start -->
+    <section class="services" id="services">
+      <div class="container">
+
+        <div class="main-txt">
+          <h1 data-lang="en">services <span>Us</span></h1>
+          <h1 data-lang="ar" style="display: none;">خدمات <span>ما</span></h1>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <i class="fas fa-hotel"></i>
+              <div class="card-body">
+                <h3 data-lang="en">Affordable Hotel</h3>
+                <h3 data-lang="ar" style="display: none;">  هتل های راحت</h3>
+                <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                <p data-lang="ar" style="display: none;">لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أدايبايسينغ إليت. أ، إياوي.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <i class="fas fa-utensils"></i>
+              <div class="card-body">
+                <h3 data-lang="en">Food & Drinks</h3>
+                <h3 data-lang="ar" style="display: none;"> غذا و نوشدینی</h3>
+                <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                <p data-lang="ar" style="display: none;">لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أدايبايسينغ إليت. أ، إياوي.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-bullhorn"></i>
+              <div class="card-body">
+                <h3>Safty Guide</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+        <div class="row" style="margin-top: 30px;">
+
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-globe-asia"></i>
+              <div class="card-body">
+                <h3>Around The World</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-plane"></i>
+              <div class="card-body">
+                <h3>Fastest Travel</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <i class="fas fa-hiking"></i>
+              <div class="card-body">
+                <h3>Adventures</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section>
+    <!-- Section Services End -->
+
+
+
+
+    <!-- Section Gallary Start -->
+    <section class="gallary" id="gallary">
+      <div class="container">
+
+        <div class="main-txt">
+          <h1><span>G</span>allary</h1>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/g1.png" alt="" height="230px">
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/g2.png" alt="" height="230px">
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/g3.png" alt="" height="230px">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 30px;">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/g4.png" alt="" height="230px">
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/g5.png" alt="" height="230px">
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/g6.png" alt="" height="230px">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- Section Gallary End -->
+
+
+
+
+
+
+
+    <!-- About Start --><section class="about" id="about">
+  <div class="container">
+
+    <div class="main-txt">
+      <h1 data-lang="en">About <span>Us</span></h1>
+      <h1 data-lang="ar" style="display: none;">درباه <span>ما</span></h1>
+    </div>
+
+    <div class="row" style="margin-top: 50px;">
+
+      <div class="col-md-6 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/about-img.png" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-6 py-3 py-md-0">
+        <h2 data-lang="en">How Travel Agency Works</h2>
+        <h2 data-lang="ar" style="display: none;">چگونه آژانس مسافرتی ما کار میکند   </h2>
+        <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perferendis dolorem, numquam earum at nam beatae voluptate natus consectetur facere, saepe cupiditate ut exercitationem deserunt, facilis quam perspiciatis autem iure illo harum minima. Quas, vitae aperiam laudantium alias asperiores nulla rerum, nihil eveniet perferendis sint illum accusamus officiis aliquam nam.</p>
+        <p data-lang="ar" style="display: none;">لوريم ايبسوم دولور سيت أميت ، كونسيكتيتور أديبيسيسينج إيليت. بروفيدنت برفيرينديس دولوريم ، نومكوم إيرم آت نام بياتاي فولوبتاتي ناتوس كونسيكتيتور فاكيري ، سايبي كوبيديتاتي أوت إكسيرسيتاتيونم ديسيريونت ، فاكيليس كوام بيرسبيسيتاتيس أوتيم يوري إيلو هاروم مينيما. قواس ، فيتاي أبيريام لاودانتيوم ألياس أسبيريوريس نولا ريرم ، نيهيل إفينيت برفيرينديس سينت إيلوم أكيوساموس أوفيسييس أليكوام نام.</p>
+        <button id="about-btn" data-lang="en">Read More...</button>
+        <button id="about-btn" data-lang="ar" style="display: none;"> بیستر بخوانید </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    <!-- About End -->
+   
+    <script>
+      function changeLanguage() {
+        var languageSelect = document.getElementById("language");
+        var selectedLanguage = languageSelect.value;
+    
+        // Get all elements with data-lang attribute
+        var elements = document.querySelectorAll("[data-lang]");
+    
+        // Loop through the elements and show/hide based on the selected language
+        for (var i = 0; i < elements.length; i++) {
+          var element = elements[i];
+          var lang = element.getAttribute("data-lang");
+    
+          if (lang === selectedLanguage) {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          }
+        }
+      }
+    </script>
+
+<div class="main-txt">
+  <h1 data-lang="en">my <span>reservation</span></h1>
+  <h1 data-lang="ar" style="display: none;">رزرو <span>ما</span></h1>
+</div>
+
+<div class="container mt-5 mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        
+                        <div class="icon"> <i class="fas fa-plane"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">BOOKING TYPE</h6> <span>FLIGHT</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>FLIGHT</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">FROM:IRAN</h3>
+                    <h3 class="heading">TO:Singapore</h3>
+                    <div class="mt-5">
+                        <!-- <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div> -->
+                        
+                        
+                      <div class="mt-3"> <span class="text1">32 Applied <span class="text2">of 50 capacity</span></span> </div>
+                     
+                        <button id="btncv2"> cancel </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="fas fa-hotel"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">BOOKING TYPE</h6> <span>HOTEL</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Product</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading"><br>FOR Y DAYS </h3>
+                    <div class="mt-5">
+                   
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-reddit"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">BOOKING TYPE</h6> <span>TOUR</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Design</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">DESTINATION:ROME</h3>
+                    <P>for y days from date1 to date2 </P>
+                    <div class="mt-5">
+                       
+                        <button id="btncv2"> cancel </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="container py-5">
+  <div class="main-txt">
+    <h1><span>HOTEL </span> RESERVATION</h1>
+  </div>
+  <input name="location" onChange="handleChange(event)"> </input>
+  <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5">
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"></script> -->
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Reservation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    integrity="sha384-pzjxuELFQ2N/zqjiQrXg0SpbhJKPUD7x0u0G4n2tp4KbhSLEZz1a/+MMPF4eWUc1"
+    crossorigin="anonymous">
+</head>
+<!-- 
+<body>
+  <div class="container py-5">
+    <div class="main-txt text-center">
+      <h1><span>HOTEL</span> RESERVATION</h1>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-12 col-md-8">
+        <input name="location" onChange="handleChange(event)" class="form-control">
+      </div>
+    </div>
+    <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5">
+      
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body> -->
+
+</html>
+
+
+    <!-- Footer Start -->
+    <footer id="footer" class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1><span>T</span>ravel</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus fugiat, ipsa quos nulla qui alias.</p>
+          <div class="social-links">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-pinterest-p"></i>
+          </div>
+          <div class="credit">
+            <p>Designed By <a href="#">SA Coding</a></p>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2023 SA Coding. All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    
+    <!-- Footer End -->
+
+
+
+
+
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="dataHandler.js"></script>
+
+</body>
+</html>
